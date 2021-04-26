@@ -1,0 +1,25 @@
+{
+    "name": "@types/interpret",
+    "version": "1.1.1",
+    "description": "TypeScript definitions for interpret",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "BendingBender",
+            "url": "https://github.com/BendingBender",
+            "githubUsername": "BendingBender"
+        }
+    ],
+    "main": "",
+    "types": "index",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/node": "*"
+    },
+    "typesPublisherContentHash": "73165875783dc692f560fa2a3a8fa280bcf842a41a81d3419808bb4fe0cb85c0",
+    "typeScriptVersion": "2.0"
+}

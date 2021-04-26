@@ -1,0 +1,22 @@
+{
+  "author": "Jeff Barczewski <jeff.barczewski@gmail.com>",
+  "name": "ensure-array",
+  "description": "Ensure that an object is an array. Moves error checking out of your code.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jeffbski/ensure-array.git"
+  },
+  "bugs": {
+    "url": "http://github.com/jeffbski/ensure-array/issues"
+  },
+  "main": "ensure-array.js",
+  "devDependencies": {
+    "mocha": "~4.0.0",
+    "chai": "~4.1.0"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha ./test/*.mocha.js --reporter spec --ui qunit"
+  }
+}
