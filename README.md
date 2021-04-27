@@ -9,6 +9,8 @@ an online platform to distribue oxygen concentrators :heart:
 
 - Each commit should succeed respect Clean Code Criterias.
 
+- Check the projects tab and make sure you fixed/coded one of the given tasks. 
+
 - Each pull request should succeed Tests that will be included.
 
 - **Do not submit PRs against the master branch.**
