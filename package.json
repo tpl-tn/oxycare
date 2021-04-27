@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.3",
-    "@reduxjs/toolkit": "1.4.0",
+    "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.0.2",
     "@types/fontfaceobserver": "0.0.6",
