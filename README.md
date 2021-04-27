@@ -3,7 +3,7 @@ an online platform to distribue oxygen concentrators :heart:
 <br />
 <br />
 
-## :red_circle: Pull Request Guidelines
+### :red_circle: Pull Request Guidelines
 
 - The master branch is basically just a snapshot of the latest stable release. All development should be done in dedicated branches, that will be merged into test branch.
 
