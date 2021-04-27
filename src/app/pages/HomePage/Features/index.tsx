@@ -28,17 +28,21 @@ export function Features() {
     <>
       <Title as="h2">كيفاش تنجّم تعاون؟</Title>
       <Lead>
+        <Dir direction={ 'rtl' }>
         بعض الخطوات إلي لازمك تتبعها، من هنا تعرف كيفاش تنجّم تبلغ على عبوات  <strong>الاكسجين</strong>{' '}
         <strong>المتاحة 👇</strong>
+        
       </Lead>
       <List>
         <Feature>
           <StateIcon className="feature-icon" />
           <Content>
             <SubTitle>رقم الهـاتف</SubTitle>
+            
             <P>
             رقم الهاتف متاعك يساعدنـا للإتصال بيك في حالة حصولك على عبوّة
             </P>
+              </Dir>
             <GithubRepoForm />
           </Content>
         </Feature>
@@ -46,6 +50,7 @@ export function Features() {
         <Feature>
           <INTLIcon className="feature-icon" />
           <Content>
+            <Dir direction={ 'rtl' }>
             <SubTitle>إختار الولاية </SubTitle>
             <P>
             لازمك تحدد الولاية باش إنجّمو نعرفو المنطقة الجغرافية إلي أنت فيها
@@ -55,6 +60,7 @@ export function Features() {
               </small>
             </P>
             <LanguageSwitch />
+            
           </Content>
         </Feature>
         <Feature>
@@ -74,6 +80,7 @@ export function Features() {
             <P>
             أنقر على ولايتك لتتعرّف على بعض المتطوعين
             </P>
+            </Dir>
           </Content>
         </Feature>
       </List>
