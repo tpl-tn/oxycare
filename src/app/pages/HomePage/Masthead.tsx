@@ -9,25 +9,17 @@ export function Masthead() {
   return (
     <Wrapper>
       <Logos />
-      <Title>React Boilerplate meets CRA</Title>
+      <Title>عـاون خوك التونسي وبلّغ على أقرب فرصة لعبوّات الغاز المتاحة وكون سبب حياة شخص ♡ </Title>
       <Lead>
-        Now you can use the{' '}
+        
         <A
-          href="https://www.reactboilerplate.com/"
+          href="https://github.com/tunpl/oxycare"
           target="_blank"
           rel="noopener noreferrer"
         >
-          React Boilerplate
+          منّا
         </A>{' '}
-        as a{' '}
-        <A
-          href="https://github.com/facebook/create-react-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Create React App
-        </A>{' '}
-        template.
+        تنجّم تو تشوف عبوات الغاز المتاحة
       </Lead>
     </Wrapper>
   );

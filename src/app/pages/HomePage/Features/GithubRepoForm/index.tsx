@@ -52,45 +52,26 @@ export function GithubRepoForm() {
   return (
     <Wrapper>
       <FormGroup onSubmit={onSubmitForm}>
-        <FormLabel>Github Username</FormLabel>
+        <FormLabel>أكتب الرّقم</FormLabel>
         <InputWrapper>
           <Input
             type="text"
-            placeholder="Type any Github username"
+            placeholder="+216 99 999 999"
             value={username}
             onChange={onChangeUsername}
           />
           {isLoading && <LoadingIndicator small />}
         </InputWrapper>
       </FormGroup>
-      {repos?.length > 0 ? (
-        <List>
-          {repos.map(repo => (
-            <RepoItem
-              key={repo.id}
-              name={repo.name}
-              starCount={repo.stargazers_count}
-              url={repo.html_url}
-            />
-          ))}
-        </List>
-      ) : error ? (
-        <ErrorText>{repoErrorText(error)}</ErrorText>
-      ) : null}
+      
     </Wrapper>
   );
 }
 
 export const repoErrorText = (error: RepoErrorType) => {
   switch (error) {
-    case RepoErrorType.USER_NOT_FOUND:
-      return 'There is no such user 😞';
     case RepoErrorType.USERNAME_EMPTY:
-      return 'Type any Github username';
-    case RepoErrorType.USER_HAS_NO_REPO:
-      return 'User has no repository 🥺';
-    case RepoErrorType.GITHUB_RATE_LIMIT:
-      return 'Looks like github api`s rate limit(60 request/h) has exceeded 🤔';
+      return 'لازمك تكتب رقم';
     default:
       return 'An error has occurred!';
   }

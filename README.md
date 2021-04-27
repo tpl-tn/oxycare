@@ -1,7 +1,7 @@
 # Oxycare 
 an online platform to distribue oxygen concentrators :heart:
 
-## :snake: Prototypes 
+## :fire: Prototypes 
 will be available soon.
 
 

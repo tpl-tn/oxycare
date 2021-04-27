@@ -12,7 +12,7 @@ export function HomePage() {
         <title>Home Page</title>
         <meta
           name="description"
-          content="A React Boilerplate application homepage"
+          content="A platform to distribute oxygen concentrators in Tunisia."
         />
       </Helmet>
       <NavBar />
