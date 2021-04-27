@@ -41,7 +41,6 @@ export function Features() {
             <P>
             رقم الهاتف متاعك يساعدنـا للإتصال بيك في حالة حصولك على عبوّة
             </P>
-              </Dir>
             <GithubRepoForm />
           </Content>
         </Feature>
@@ -49,7 +48,6 @@ export function Features() {
         <Feature>
           <INTLIcon className="feature-icon" />
           <Content>
-            <Dir direction={ 'rtl' }>
             <SubTitle>إختار الولاية </SubTitle>
             <P>
             لازمك تحدد الولاية باش إنجّمو نعرفو المنطقة الجغرافية إلي أنت فيها
