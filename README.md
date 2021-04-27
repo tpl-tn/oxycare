@@ -1,6 +1,10 @@
 # Oxycare 
 an online platform to distribue oxygen concentrators :heart:
 <br />
+## 🎤 The stack and the technologies we're using
+- ReactJS/TypeScript
+- MaterialUI
+- Firebase
 <br />
 
 ### :red_circle: Pull Request Guidelines
