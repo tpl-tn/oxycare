@@ -37,6 +37,19 @@ Before contributing check:
 ## ✅ The Reviewers:
 - @bahachammakhi
 
+## ✨ How to exxecute in Localhost
+1. Create .env file and add:
+```
+REACT_APP_apiKey=AIzaSyAdu-Xdz62kLc0ptxraSE9h2fQQ_71pWck
+REACT_APP_authDomain=oxycare-8358e.firebaseapp.com
+REACT_APP_databaseURL=
+REACT_APP_projectId=oxycare-8358e
+REACT_APP_storageBucket=oxycare-8358e.appspot.com
+REACT_APP_messagingSenderId=26729504664
+REACT_APP_appId=1:26729504664:web:725f282b3e0218959815ed
+```
+2. npm install
+3. npm start
 
 ## License
 This project is licensed under the MIT license, Copyright (c) 2021 @tunpl : @tn.programmers
