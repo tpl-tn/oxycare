@@ -1,7 +1,7 @@
 # Oxycare 
 an online platform to distribue oxygen concentrators :heart:
 <br />
-## 🎤 The stack and the technologies we're using
+## 🎤 The stack/technologies we're using
 - ReactJS/TypeScript
 - MaterialUI
 - Firebase
@@ -30,12 +30,14 @@ Before contributing check:
 
 - Again, **Do not submit PRs against the master branch.**
 
+## 🔶 The Branches: 
+- dev: for everything in the development process
+- main: for prod, don't edit this one ❗
 
-
-
+## ✅ The Reviewers:
+- @bahachammakhi
 
 
 ## License
-
 This project is licensed under the MIT license, Copyright (c) 2021 @tunpl : @tn.programmers
 For more information see `LICENSE.md`.
