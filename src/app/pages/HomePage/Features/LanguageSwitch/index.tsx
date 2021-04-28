@@ -14,26 +14,62 @@ export function LanguageSwitch() {
 
   return (
     <Wrapper>
-      <FormLabel>{t(...messages.selectLanguage())}</FormLabel>
       <Languages>
         <Radio
-          id="en"
-          label="English"
+          id="3s"
+          label="تونس العاصمة"
           className="radio"
           name="language"
           onChange={handleLanguageChange}
-          value="en"
-          isSelected={i18n.language === 'en'}
+          value="3s"
+          isSelected={i18n.language === '3s'}
         />
         <Radio
           id="tr"
-          label="Deutsch"
+          label="نابل"
           className="radio"
           name="language"
           onChange={handleLanguageChange}
           value="de"
-          isSelected={i18n.language === 'de'}
+          isSelected={i18n.language === 'nb'}
         />
+        <Radio
+          id="tr"
+          label="أريانة"
+          className="radio"
+          name="language"
+          onChange={handleLanguageChange}
+          value="de"
+          isSelected={i18n.language === 'rn'}
+        />
+        <Radio
+          id="tr"
+          label="بنزرت"
+          className="radio"
+          name="language"
+          onChange={handleLanguageChange}
+          value="de"
+          isSelected={i18n.language === 'bz'}
+        />
+        <Radio
+          id="tr"
+          label="صفاقس"
+          className="radio"
+          name="language"
+          onChange={handleLanguageChange}
+          value="de"
+          isSelected={i18n.language === 'sf'}
+        />
+        <Radio
+          id="tr"
+          label="منستير"
+          className="radio"
+          name="language"
+          onChange={handleLanguageChange}
+          value="de"
+          isSelected={i18n.language === 'ms'}
+        />
+
       </Languages>
     </Wrapper>
   );
@@ -50,6 +86,6 @@ const Languages = styled.div`
   display: flex;
 
   .radio {
-    margin-right: 1.5rem;
+    margin-right: 5rem;
   }
 `;

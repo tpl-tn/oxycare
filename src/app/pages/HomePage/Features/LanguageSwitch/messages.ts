@@ -5,6 +5,6 @@ export const messages = {
   selectLanguage: () =>
     _t(
       translations.i18nFeature.selectLanguage,
-      'Select Language', // default value
+      'Select', // default value
     ),
 };

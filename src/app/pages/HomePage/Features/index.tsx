@@ -21,8 +21,25 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'app/components/Link';
 import { messages } from '../messages';
 
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+  }),
+);
+
+
+
 export function Features() {
   const { t } = useTranslation();
+  const classes = useStyles();
+
 
   return (
     <>
@@ -55,10 +72,12 @@ export function Features() {
               <small>
                 (المعتمديات في مرحلة أخرى)
               </small>
-            </P>
-            <LanguageSwitch />
-            
-          </Content>
+    </P>
+            <LanguageSwitch />  
+           <div className="{classes.root}">
+            <Button variant="contained">Submit</Button>
+           </div>
+</Content>
         </Feature>
         <Feature>
           <RouteIcon className="feature-icon" />
