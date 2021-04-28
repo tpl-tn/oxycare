@@ -1,4 +1,4 @@
-# <img src="/public/logo.png" height="100"> Oxycare 
+# <img src="/public/logo.png" height="60"> Oxycare 
 an online platform to distribue oxygen concentrators :heart:
 
 ![GitHub top language](https://img.shields.io/github/languages/top/tunpl/oxycare)
