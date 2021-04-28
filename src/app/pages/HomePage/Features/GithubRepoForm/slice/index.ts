@@ -1,19 +1,19 @@
-import { PayloadAction } from '@reduxjs/toolkit';
-import { Repo } from 'types/Repo';
-import { createSlice } from 'utils/@reduxjs/toolkit';
-import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { githubRepoFormSaga } from './saga';
-import { GithubRepoFormState, RepoErrorType } from './types';
+import { PayloadAction } from "@reduxjs/toolkit";
+import { Repo } from "types/Repo";
+import { createSlice } from "utils/@reduxjs/toolkit";
+import { useInjectReducer, useInjectSaga } from "utils/redux-injectors";
+import { githubRepoFormSaga } from "./saga";
+import { GithubRepoFormState, RepoErrorType } from "./types";
 
 export const initialState: GithubRepoFormState = {
-  username: 'react-boilerplate',
+  username: "",
   repositories: [],
   loading: false,
   error: null,
 };
 
 const slice = createSlice({
-  name: 'githubRepoForm',
+  name: "githubRepoForm",
   initialState,
   reducers: {
     changeUsername(state, action: PayloadAction<string>) {

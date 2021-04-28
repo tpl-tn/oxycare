@@ -10,9 +10,8 @@ export function LanguageSwitch() {
   // const { t, i18n } = useTranslation();
   const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const location = Number(event.target.value);
-    console.log({ location: location });
+
     setGov(location);
-    // i18n.changeLanguage(language);
   };
 
   return (
@@ -36,6 +35,24 @@ export function LanguageSwitch() {
           onChange={handleLocationChange}
           value="2"
           isSelected={gov === 2}
+        />
+        <Radio
+          id="3"
+          label="بن عروس"
+          className="radio"
+          name="language"
+          onChange={handleLocationChange}
+          value="3"
+          isSelected={gov === 3}
+        />
+        <Radio
+          id="4"
+          label="بنزرت"
+          className="radio"
+          name="language"
+          onChange={handleLocationChange}
+          value="4"
+          isSelected={gov === 4}
         />
       </Languages>
     </Wrapper>
