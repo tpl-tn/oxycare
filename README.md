@@ -37,7 +37,7 @@ Before contributing check:
 ## ✅ The Reviewers:
 - @bahachammakhi
 
-## ✨ How to exxecute in Localhost
+## ✨ How to execute in Localhost
 1. Create .env file and add:
 ```
 REACT_APP_apiKey=AIzaSyAdu-Xdz62kLc0ptxraSE9h2fQQ_71pWck
