@@ -5,8 +5,6 @@ an online platform to distribue oxygen concentrators :heart: <br />
 ![David](https://img.shields.io/david/tunpl/oxycare)
 ![GitHub Repo stars](https://img.shields.io/github/stars/tunpl/oxycare?style=social)
 
-
-<br />
 ## 🎤 The stack/technologies we're using
 - ReactJS/TypeScript
 - MaterialUI
