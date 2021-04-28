@@ -54,6 +54,33 @@ export function LanguageSwitch() {
           value="4"
           isSelected={gov === 4}
         />
+        <Radio
+          id="5"
+          label=" تطاوين"
+          className="radio"
+          name="language"
+          onChange={handleLocationChange}
+          value="5"
+          isSelected={gov === 5}
+        />
+        <Radio
+          id="6"
+          label="توزر"
+          className="radio"
+          name="language"
+          onChange={handleLocationChange}
+          value="6"
+          isSelected={gov === 6}
+        />
+        <Radio
+          id="7"
+          label="تونس"
+          className="radio"
+          name="language"
+          onChange={handleLocationChange}
+          value="7"
+          isSelected={gov === 7}
+        />
       </Languages>
     </Wrapper>
   );

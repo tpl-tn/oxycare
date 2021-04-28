@@ -20,10 +20,36 @@ import { ReactComponent as CodeAnalysisIcon } from "./assets/code-analysis.svg";
 import { useTranslation } from "react-i18next";
 import { Link } from "app/components/Link";
 import { messages } from "../messages";
-
-export function Features() {
+import { initialState } from "./GithubRepoForm/slice";
+import { connect } from "react-redux";
+import { useSelector } from "react-redux";
+import {
+  selectError,
+  selectUsername,
+  selectRepos,
+  selectLoading,
+} from "./GithubRepoForm/slice/selectors";
+export const Features = () => {
   const { t } = useTranslation();
+  const username = useSelector(selectUsername);
+  const [error, setError] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
+  const submitHandler = () => {
+    if (username) {
+      setError(false);
+      setSuccess(true);
+    } else {
+      setError(true);
+      setSuccess(false);
+    }
+  };
 
+  React.useEffect(() => {
+    setTimeout(() => {
+      setError(false);
+      setSuccess(false);
+    }, 5000);
+  }, [error || success]);
   return (
     <>
       <Title as="h2">كيفاش تنجّم تعاون؟</Title>
@@ -32,6 +58,8 @@ export function Features() {
         <strong>الاكسجين</strong> <strong>المتاحة 👇</strong>
       </Lead>
       <List>
+        {error ? <Div1>عليك إدخال رقم الهاتف</Div1> : null}
+        {success ? <Div2>تمت عملية إدخال معطياتك بنجاح</Div2> : null}
         <Feature>
           <StateIcon className="feature-icon" />
           <Content>
@@ -74,16 +102,13 @@ export function Features() {
           </Content>
         </Feature>
 
-        <Button
-          onClick={() => console.log("clicked")}
-          style={{ cursor: "pointer" }}
-        >
+        <Button onClick={submitHandler} style={{ cursor: "pointer" }}>
           تفعييل
         </Button>
       </List>
     </>
   );
-}
+};
 
 const Button = styled.button`
   background: #b99095;
@@ -112,4 +137,12 @@ const Content = styled.div`
 const List = styled.ul`
   padding: 0;
   margin: 6.25rem 0 0 0;
+`;
+const Div1 = styled.div`
+  color: red;
+  margin: 0 0 2rem 0;
+`;
+const Div2 = styled.div`
+  color: green;
+  margin: 0 0 2rem 0;
 `;
