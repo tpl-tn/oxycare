@@ -1,38 +1,41 @@
-import * as React from 'react';
-import { FormLabel } from 'app/components/FormLabel';
-import { Radio } from 'app/components/Radio';
-import styled from 'styled-components/macro';
-import { useTranslation } from 'react-i18next';
-import { messages } from './messages';
+import * as React from "react";
+import { FormLabel } from "app/components/FormLabel";
+import { Radio } from "app/components/Radio";
+import styled from "styled-components/macro";
+import { useTranslation } from "react-i18next";
+import { messages } from "./messages";
 
 export function LanguageSwitch() {
-  const { t, i18n } = useTranslation();
-  const handleLanguageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const language = event.target.value;
-    i18n.changeLanguage(language);
+  const [gov, setGov] = React.useState(1);
+  // const { t, i18n } = useTranslation();
+  const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const location = Number(event.target.value);
+    console.log({ location: location });
+    setGov(location);
+    // i18n.changeLanguage(language);
   };
 
   return (
     <Wrapper>
-      <FormLabel>{t(...messages.selectLanguage())}</FormLabel>
+      {/* <FormLabel>{t(...messages.selectLanguage())}</FormLabel> */}
       <Languages>
         <Radio
-          id="en"
-          label="English"
+          id="1"
+          label="أريانة"
           className="radio"
           name="language"
-          onChange={handleLanguageChange}
-          value="en"
-          isSelected={i18n.language === 'en'}
+          onChange={handleLocationChange}
+          value="1"
+          isSelected={gov === 1}
         />
         <Radio
-          id="tr"
-          label="Deutsch"
+          id="2"
+          label="باجة"
           className="radio"
           name="language"
-          onChange={handleLanguageChange}
-          value="de"
-          isSelected={i18n.language === 'de'}
+          onChange={handleLocationChange}
+          value="2"
+          isSelected={gov === 2}
         />
       </Languages>
     </Wrapper>
