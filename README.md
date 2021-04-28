@@ -42,6 +42,7 @@ Before contributing check:
 - @bahachammakhi
 
 ## ✨ How to execute in Localhost
+0. git clone ```https://github.com/tunpl/oxycare.git```
 1. Create .env file and add:
 ```
 REACT_APP_apiKey=AIzaSyAdu-Xdz62kLc0ptxraSE9h2fQQ_71pWck
