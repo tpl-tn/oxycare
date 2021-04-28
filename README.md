@@ -1,6 +1,11 @@
 # Oxycare 
-an online platform to distribue oxygen concentrators :heart:
-![AppVeyor](https://img.shields.io/appveyor/build/tunpl/oxycare)
+an online platform to distribue oxygen concentrators :heart: <br />
+![GitHub top language](https://img.shields.io/github/languages/top/tunpl/oxycare)
+![Discord](https://img.shields.io/discord/834943508225327114)
+![David](https://img.shields.io/david/tunpl/oxycare)
+![GitHub Repo stars](https://img.shields.io/github/stars/tunpl/oxycare?style=social)
+
+
 <br />
 ## 🎤 The stack/technologies we're using
 - ReactJS/TypeScript
