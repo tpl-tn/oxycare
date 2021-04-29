@@ -1,10 +1,7 @@
 # <img src="/public/logo.png" height="60"> Oxycare 
 an online platform to distribue oxygen concentrators :heart:
 
-![GitHub top language](https://img.shields.io/github/languages/top/tunpl/oxycare)
-![Discord](https://img.shields.io/discord/834943508225327114)
-![David](https://img.shields.io/david/tunpl/oxycare)
-![GitHub Repo stars](https://img.shields.io/github/stars/tunpl/oxycare?style=social)
+![GitHub top language](https://img.shields.io/github/languages/top/tunpl/oxycare) ![Discord](https://img.shields.io/discord/834943508225327114) ![David](https://img.shields.io/david/tunpl/oxycare) ![GitHub Repo stars](https://img.shields.io/github/stars/tunpl/oxycare?style=social)
 
 ## 🎤 The stack/technologies we're using
 - ReactJS/TypeScript
