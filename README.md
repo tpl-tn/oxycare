@@ -1,10 +1,7 @@
 <p align="center"> <img src="/public/logo.png" height="80" style="float" align="center" alt="Oxycare"></p>
 <h1 align="center"> Oxycare </h1>
 
-<img style="float" align="center" src="https://img.shields.io/github/languages/top/tunpl/oxycare">
-<img style="float" align="center" src="https://img.shields.io/discord/834943508225327114">
-<img style="float" align="center" src="https://img.shields.io/david/tunpl/oxycare">
-<img style="float" align="center" src="https://img.shields.io/github/stars/tunpl/oxycare?style=social">
+<img align="center" src="https://img.shields.io/github/languages/top/tunpl/oxycare"> <img align="center" src="https://img.shields.io/discord/834943508225327114"> <img align="center" src="https://img.shields.io/david/tunpl/oxycare">  <img align="center" src="https://img.shields.io/github/stars/tunpl/oxycare?style=social">
 
 ## 🎤 The stack/technologies we're using
 - ReactJS/TypeScript
