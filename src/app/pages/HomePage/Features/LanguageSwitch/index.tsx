@@ -10,19 +10,16 @@ export function LanguageSwitch() {
   // const { t, i18n } = useTranslation();
   const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const location = Number(event.target.value);
-<<<<<<< HEAD
+
     console.log({ location: location });
     setGov(location);
     // i18n.changeLanguage(language);
-=======
     console.log();
     setGov(location);
->>>>>>> dev
   };
 
   return (
     <Wrapper>
-<<<<<<< HEAD
 
       <Languages>
         <Radio
@@ -43,14 +40,12 @@ export function LanguageSwitch() {
           value="de"
           isSelected={i18n.language === 'nb'}
 
-=======
->>>>>>> dev
+
       {/* <FormLabel>{t(...messages.selectLanguage())}</FormLabel> */}
       <Languages>
         <Radio
           id="1"
           label="أريانة"
-<<<<<<< HEAD
           className="radio"
           name="language"
           onChange={handleLocationChange}
@@ -102,7 +97,6 @@ export function LanguageSwitch() {
           onChange={handleLanguageChange}
           value="de"
           isSelected={i18n.language === 'ms'}
-=======
           className="radio"
           name="language"
           onChange={handleLocationChange}
@@ -315,7 +309,6 @@ export function LanguageSwitch() {
           onChange={handleLocationChange}
           value="24"
           isSelected={gov === 24}
->>>>>>> dev
         />
 
       </Languages>
@@ -334,11 +327,8 @@ const Languages = styled.div`
   display: flex;
   flex-wrap: wrap;
   .radio {
-<<<<<<< HEAD
     margin-right: 5rem;
-=======
     margin-right: 1.5rem;
     width: 20%;
->>>>>>> dev
   }
 `;
