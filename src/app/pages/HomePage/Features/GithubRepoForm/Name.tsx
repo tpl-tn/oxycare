@@ -6,40 +6,37 @@ import { Input } from "./components/Input";
 import { RepoItem } from "./RepoItem";
 import { TextButton } from "./components/TextButton";
 import {
-  selectUsername,
-  selectRepos,
-  selectLoading,
-  selectError,
+  selectUsername2,
+  selectRepos2,
+  selectLoading2,
+  selectError2,
 } from "./slice/selectors";
 import { LoadingIndicator } from "app/components/LoadingIndicator";
 import { RepoErrorType } from "./slice/types";
-import { useGithubRepoFormSlice } from "./slice";
+import { useGithubRepoFormSlice } from "./slice/index";
 
-export function GithubRepoForm() {
+export function Name() {
   const { actions } = useGithubRepoFormSlice();
 
-  const username = useSelector(selectUsername);
-  const repos = useSelector(selectRepos);
-  const isLoading = useSelector(selectLoading);
-  const error = useSelector(selectError);
+  const username2 = useSelector(selectUsername2);
+  const repos = useSelector(selectRepos2);
+  const isLoading = useSelector(selectLoading2);
+  const error = useSelector(selectError2);
 
   const dispatch = useDispatch();
 
-  const onChangeUsername = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    if (Number.isInteger(Number(evt.currentTarget.value))) {
-      dispatch(actions.changeUsername(evt.currentTarget.value));
-      dispatch(actions.loadRepos());
-      console.log({ ur: username });
-      console.log({ repos: repos });
-    } else {
-      dispatch(actions.repoError);
-    }
-
-    // console.log({ username: username });
-    // console.log({ repos: repos });
-
-    // console.log({ repos: repos });
-    // console.log({ error: error });
+  const onChangeUsername2 = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    // if (Number.isInteger(Number(evt.currentTarget.value))) {
+    //   dispatch(actions.repoError2);
+    //   console.log(error);
+    // } else {
+    dispatch(actions.changeUsername2(evt.currentTarget.value));
+    dispatch(actions.loadRepos2());
+    console.log({ user: username2 });
+    console.log({ user: repos });
+    console.log({ user: isLoading });
+    console.log({ user: error });
+    // }
   };
 
   const useEffectOnMount = (effect: React.EffectCallback) => {
@@ -49,8 +46,8 @@ export function GithubRepoForm() {
 
   useEffectOnMount(() => {
     // When initial state username is not null, submit the form to load repos
-    if (username && username.trim().length > 0) {
-      dispatch(actions.loadRepos());
+    if (username2 && username2.trim().length > 0) {
+      dispatch(actions.loadRepos2());
     }
   });
 
@@ -64,13 +61,13 @@ export function GithubRepoForm() {
   return (
     <Wrapper>
       <FormGroup onSubmit={onSubmitForm}>
-        <FormLabel>أكتب الرّقم</FormLabel>
+        {/* <FormLabel>أكتب الرّقم</FormLabel> */}
         <InputWrapper>
           <Input
             type="text"
-            placeholder="+216 99 999 999"
-            value={username}
-            onChange={onChangeUsername}
+            placeholder="الإسم و اللقب"
+            value={username2}
+            onChange={onChangeUsername2}
           />
           {isLoading && <LoadingIndicator small />}
         </InputWrapper>
@@ -79,12 +76,10 @@ export function GithubRepoForm() {
   );
 }
 
-export const repoErrorText = (error: RepoErrorType) => {
+export const repoErrorText2 = (error: RepoErrorType) => {
   switch (error) {
     case RepoErrorType.USERNAME_EMPTY:
-      return "لازمك تكتب رقم";
-    case RepoErrorType.USERNAME_NOT_NUMBER:
-      return "لازمك تكتب رقم";
+      return "لازمك تكتب الإسم";
 
     default:
       return "An error has occurred!";
