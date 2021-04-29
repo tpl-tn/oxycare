@@ -1,7 +1,7 @@
 <p align="center"> <img src="/public/logo.png" height="80" style="float" align="center" alt="Oxycare"></p>
 <h1 align="center"> Oxycare </h1>
 
-![GitHub top language](https://img.shields.io/github/languages/top/tunpl/oxycare)
+<img align="center" src="https://img.shields.io/github/languages/top/tunpl/oxycare">
 ![Discord](https://img.shields.io/discord/834943508225327114)
 ![David](https://img.shields.io/david/tunpl/oxycare)
 ![GitHub Repo stars](https://img.shields.io/github/stars/tunpl/oxycare?style=social)
