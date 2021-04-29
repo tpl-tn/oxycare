@@ -1,4 +1,4 @@
-<p align="center"> <img src="/public/logo.png" height="60" align="center"> <h2>Oxycare</h2> </p>
+<p align="center"> <img src="/public/logo.png" height="60" align="center"><b>Oxycare</b></p>
 
 ![GitHub top language](https://img.shields.io/github/languages/top/tunpl/oxycare)
 ![Discord](https://img.shields.io/discord/834943508225327114)
