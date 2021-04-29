@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import styled from "styled-components/macro";
-import { useSelector, useDispatch } from "react-redux";
-import { FormLabel } from "app/components/FormLabel";
-import { Input } from "./components/Input";
-import { RepoItem } from "./RepoItem";
-import { TextButton } from "./components/TextButton";
+import React, { useEffect } from 'react';
+import styled from 'styled-components/macro';
+import { useSelector, useDispatch } from 'react-redux';
+import { FormLabel } from 'app/components/FormLabel';
+import { Input } from './components/Input';
+import { RepoItem } from './RepoItem';
+import { TextButton } from './components/TextButton';
 import {
   selectUsername,
   selectRepos,
   selectLoading,
   selectError,
-} from "./slice/selectors";
-import { LoadingIndicator } from "app/components/LoadingIndicator";
-import { RepoErrorType } from "./slice/types";
-import { useGithubRepoFormSlice } from "./slice";
+} from './slice/selectors';
+import { LoadingIndicator } from 'app/components/LoadingIndicator';
+import { RepoErrorType } from './slice/types';
+import { useGithubRepoFormSlice } from './slice';
 
 export function GithubRepoForm() {
   const { actions } = useGithubRepoFormSlice();
@@ -26,20 +26,8 @@ export function GithubRepoForm() {
   const dispatch = useDispatch();
 
   const onChangeUsername = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    if (Number.isInteger(Number(evt.currentTarget.value))) {
-      dispatch(actions.changeUsername(evt.currentTarget.value));
-      dispatch(actions.loadRepos());
-      console.log({ ur: username });
-      console.log({ repos: repos });
-    } else {
-      dispatch(actions.repoError);
-    }
-
-    // console.log({ username: username });
-    // console.log({ repos: repos });
-
-    // console.log({ repos: repos });
-    // console.log({ error: error });
+    dispatch(actions.changeUsername(evt.currentTarget.value));
+    dispatch(actions.loadRepos());
   };
 
   const useEffectOnMount = (effect: React.EffectCallback) => {
@@ -75,6 +63,7 @@ export function GithubRepoForm() {
           {isLoading && <LoadingIndicator small />}
         </InputWrapper>
       </FormGroup>
+      
     </Wrapper>
   );
 }
@@ -82,12 +71,9 @@ export function GithubRepoForm() {
 export const repoErrorText = (error: RepoErrorType) => {
   switch (error) {
     case RepoErrorType.USERNAME_EMPTY:
-      return "لازمك تكتب رقم";
-    case RepoErrorType.USERNAME_NOT_NUMBER:
-      return "لازمك تكتب رقم";
-
+      return 'لازمك تكتب رقم';
     default:
-      return "An error has occurred!";
+      return 'An error has occurred!';
   }
 };
 
@@ -109,7 +95,7 @@ const InputWrapper = styled.div`
 `;
 
 const ErrorText = styled.span`
-  color: ${(p) => p.theme.text};
+  color: ${p => p.theme.text};
 `;
 
 const FormGroup = styled.form`

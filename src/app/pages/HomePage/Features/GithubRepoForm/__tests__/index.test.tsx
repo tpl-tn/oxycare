@@ -1,17 +1,17 @@
-import * as React from "react";
-import { Store } from "@reduxjs/toolkit";
-import { render, fireEvent } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { ThemeProvider } from "styles/theme/ThemeProvider";
-import { HelmetProvider } from "react-helmet-async";
-import { GithubRepoForm, repoErrorText } from "..";
-import { configureAppStore } from "store/configureStore";
-import { githubRepoFormActions as actions, initialState } from "../slice";
-import { RepoErrorType } from "../slice/types";
+import * as React from 'react';
+import { Store } from '@reduxjs/toolkit';
+import { render, fireEvent } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styles/theme/ThemeProvider';
+import { HelmetProvider } from 'react-helmet-async';
+import { GithubRepoForm, repoErrorText } from '..';
+import { configureAppStore } from 'store/configureStore';
+import { githubRepoFormActions as actions, initialState } from '../slice';
+import { RepoErrorType } from '../slice/types';
 
 function* mockGithubRepoFormSaga() {}
 
-jest.mock("../slice/saga", () => ({
+jest.mock('../slice/saga', () => ({
   githubRepoFormSaga: mockGithubRepoFormSaga,
 }));
 
@@ -23,10 +23,10 @@ const renderGithubRepoForm = (store: Store) =>
           <GithubRepoForm />
         </HelmetProvider>
       </ThemeProvider>
-    </Provider>
+    </Provider>,
   );
 
-describe("<GithubRepoForm />", () => {
+describe('<GithubRepoForm />', () => {
   let store: ReturnType<typeof configureAppStore>;
   let component: ReturnType<typeof renderGithubRepoForm>;
 
@@ -48,43 +48,43 @@ describe("<GithubRepoForm />", () => {
   });
 
   it("shouldn't fetch repos on mount if username is empty", () => {
-    store.dispatch(actions.changeUsername(""));
+    store.dispatch(actions.changeUsername(''));
     store.dispatch(actions.reposLoaded([]));
     component.unmount();
     component = renderGithubRepoForm(store);
     expect(store.getState().githubRepoForm.loading).toBe(false);
   });
 
-  it("should dispatch action on username change", () => {
-    const input = component.container.querySelector("input");
-    fireEvent.change(input!, { target: { value: "test" } });
+  it('should dispatch action on username change', () => {
+    const input = component.container.querySelector('input');
+    fireEvent.change(input!, { target: { value: 'test' } });
     expect(store.getState().githubRepoForm.loading).toBe(true);
   });
 
-  it("should change username field value on action", () => {
-    const value = "test";
+  it('should change username field value on action', () => {
+    const value = 'test';
     const form = renderGithubRepoForm(store);
 
-    const input = form.container.querySelector("input");
+    const input = form.container.querySelector('input');
     fireEvent.change(input!, { target: { value: value } });
 
-    expect(form.container.querySelector("input")?.value).toBe(value);
+    expect(form.container.querySelector('input')?.value).toBe(value);
   });
 
-  it("should display loading indicator when state is loading", () => {
+  it('should display loading indicator when state is loading', () => {
     store.dispatch(actions.loadRepos());
-    expect(component.container.querySelector("circle")).toBeInTheDocument();
+    expect(component.container.querySelector('circle')).toBeInTheDocument();
   });
 
-  it("should display list when repos not empty", () => {
-    const repoName = "testRepo";
+  it('should display list when repos not empty', () => {
+    const repoName = 'testRepo';
     store.dispatch(
-      actions.reposLoaded([{ id: "test", name: repoName } as any])
+      actions.reposLoaded([{ id: 'test', name: repoName } as any]),
     );
     expect(component.queryByText(repoName)).toBeInTheDocument();
   });
 
-  it("should display error when repoError fired", () => {
+  it('should display error when repoError fired', () => {
     let error = RepoErrorType.USER_NOT_FOUND;
     store.dispatch(actions.repoError(error));
     expect(component.queryByText(repoErrorText(error))).toBeInTheDocument();
@@ -94,10 +94,6 @@ describe("<GithubRepoForm />", () => {
     expect(component.queryByText(repoErrorText(error))).toBeInTheDocument();
 
     error = RepoErrorType.USERNAME_EMPTY;
-    store.dispatch(actions.repoError(error));
-    expect(component.queryByText(repoErrorText(error))).toBeInTheDocument();
-
-    error = RepoErrorType.USERNAME_NOT_NUMBER;
     store.dispatch(actions.repoError(error));
     expect(component.queryByText(repoErrorText(error))).toBeInTheDocument();
 
