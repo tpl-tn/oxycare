@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import * as React from 'react';
 import styled from 'styled-components/macro';
 import { Title } from '../components/Title';
@@ -24,6 +23,23 @@ import { messages } from '../messages';
 
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { initialState } from "./GithubRepoForm/slice";
+import { connect } from "react-redux";
+import { useSelector } from "react-redux";
+import {
+  selectError,
+  selectUsername,
+  selectRepos,
+  selectLoading,
+  selectError2,
+  selectUsername2,
+  selectLoading2,
+  selectRepos2,
+} from "./GithubRepoForm/slice/selectors";
+import { GiveRecieveSwitch } from "./GiveRecieveSwitch";
+import { Name } from "./GithubRepoForm/Name";
+
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,44 +57,7 @@ export function Features() {
   const { t } = useTranslation();
   const classes = useStyles();
 
-=======
-import * as React from "react";
-import styled from "styled-components/macro";
-import { Title } from "../components/Title";
-import { Lead } from "../components/Lead";
-import { SubTitle } from "../components/SubTitle";
-import { P } from "../components/P";
-import { A } from "app/components/A";
-import { GithubRepoForm } from "./GithubRepoForm";
-import { ThemeSwitch } from "./ThemeSwitch";
-import { LanguageSwitch } from "./LanguageSwitch";
-import { ReactComponent as StateIcon } from "./assets/state.svg";
-import { ReactComponent as CSSIcon } from "./assets/css.svg";
-import { ReactComponent as INTLIcon } from "./assets/intl.svg";
-import { ReactComponent as TSLogo } from "./assets/ts.svg";
-import { ReactComponent as RouteIcon } from "./assets/route.svg";
-import { ReactComponent as SEOIcon } from "./assets/seo.svg";
-import { ReactComponent as InstantFeedbackIcon } from "./assets/instant-feedback.svg";
-import { ReactComponent as ScaffoldingIcon } from "./assets/scaffolding.svg";
-import { ReactComponent as CodeAnalysisIcon } from "./assets/code-analysis.svg";
-import { useTranslation } from "react-i18next";
-import { Link } from "app/components/Link";
-import { messages } from "../messages";
-import { initialState } from "./GithubRepoForm/slice";
-import { connect } from "react-redux";
-import { useSelector } from "react-redux";
-import {
-  selectError,
-  selectUsername,
-  selectRepos,
-  selectLoading,
-  selectError2,
-  selectUsername2,
-  selectLoading2,
-  selectRepos2,
-} from "./GithubRepoForm/slice/selectors";
-import { GiveRecieveSwitch } from "./GiveRecieveSwitch";
-import { Name } from "./GithubRepoForm/Name";
+
 export const Features = () => {
   const { t } = useTranslation();
   const username = useSelector(selectUsername);
@@ -145,7 +124,6 @@ export const Features = () => {
             <P>
               لازمك تحدد الولاية باش إنجّمو نعرفو المنطقة الجغرافية إلي أنت فيها
               <br />
-<<<<<<< HEAD
               <small>
                 (المعتمديات في مرحلة أخرى)
               </small>
@@ -155,12 +133,11 @@ export const Features = () => {
             <Button variant="contained">Submit</Button>
            </div>
 </Content>
-=======
+
               <small>(المعتمديات في مرحلة أخرى)</small>
             </P>
             <LanguageSwitch />
           </Content>
->>>>>>> dev
         </Feature>
 
         {/* <Feature>
