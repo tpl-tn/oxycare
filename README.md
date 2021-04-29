@@ -37,6 +37,7 @@ Before contributing check:
 - main: for prod, don't edit this one ❗
 
 ## ✅ The Reviewers:
+- @elfalehdev 
 - @bahachammakhi
 
 ## ✨ How to execute in Localhost
