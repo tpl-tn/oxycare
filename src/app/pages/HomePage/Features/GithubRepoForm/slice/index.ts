@@ -10,6 +10,11 @@ export const initialState: GithubRepoFormState = {
   repositories: [],
   loading: false,
   error: null,
+
+  username2: "",
+  repositories2: [],
+  loading2: false,
+  error2: null,
 };
 
 const slice = createSlice({
@@ -32,6 +37,24 @@ const slice = createSlice({
     repoError(state, action: PayloadAction<RepoErrorType>) {
       state.error = action.payload;
       state.loading = false;
+    },
+
+    changeUsername2(state, action: PayloadAction<string>) {
+      state.username2 = action.payload;
+    },
+    loadRepos2(state) {
+      state.loading2 = true;
+      state.error2 = null;
+      state.repositories2 = [];
+    },
+    reposLoaded2(state, action: PayloadAction<Repo[]>) {
+      const repos = action.payload;
+      state.repositories2 = repos;
+      state.loading2 = false;
+    },
+    repoError2(state, action: PayloadAction<RepoErrorType>) {
+      state.error2 = action.payload;
+      state.loading2 = false;
     },
   },
 });

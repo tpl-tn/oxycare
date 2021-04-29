@@ -6,6 +6,10 @@ export interface GithubRepoFormState {
   loading: boolean;
   error?: RepoErrorType | null;
   repositories: Repo[];
+  username2: string;
+  loading2: boolean;
+  error2?: RepoErrorType | null;
+  repositories2: Repo[];
 }
 
 export enum RepoErrorType {

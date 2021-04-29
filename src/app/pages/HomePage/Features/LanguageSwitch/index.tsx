@@ -10,7 +10,7 @@ export function LanguageSwitch() {
   // const { t, i18n } = useTranslation();
   const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const location = Number(event.target.value);
-
+    console.log();
     setGov(location);
   };
 

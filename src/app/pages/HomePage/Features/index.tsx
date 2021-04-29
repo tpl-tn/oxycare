@@ -28,14 +28,21 @@ import {
   selectUsername,
   selectRepos,
   selectLoading,
+  selectError2,
+  selectUsername2,
+  selectLoading2,
+  selectRepos2,
 } from "./GithubRepoForm/slice/selectors";
+import { GiveRecieveSwitch } from "./GiveRecieveSwitch";
+import { Name } from "./GithubRepoForm/Name";
 export const Features = () => {
   const { t } = useTranslation();
   const username = useSelector(selectUsername);
+  const username2 = useSelector(selectUsername2);
   const [error, setError] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
   const submitHandler = () => {
-    if (username) {
+    if (username && username2) {
       setError(false);
       setSuccess(true);
     } else {
@@ -58,8 +65,16 @@ export const Features = () => {
         <strong>الاكسجين</strong> <strong>المتاحة 👇</strong>
       </Lead>
       <List>
-        {error ? <Div1>عليك إدخال رقم الهاتف</Div1> : null}
+        {error ? <Div1>عليك إدخال جميع المعطيات</Div1> : null}
         {success ? <Div2>تمت عملية إدخال معطياتك بنجاح</Div2> : null}
+        <Feature>
+          <INTLIcon className="feature-icon" />
+          <Content>
+            <SubTitle>الإسم و اللقب</SubTitle>
+
+            <Name />
+          </Content>
+        </Feature>
         <Feature>
           <StateIcon className="feature-icon" />
           <Content>
@@ -67,6 +82,14 @@ export const Features = () => {
 
             <P>رقم الهاتف متاعك يساعدنـا للإتصال بيك في حالة حصولك على عبوّة</P>
             <GithubRepoForm />
+          </Content>
+        </Feature>
+        <Feature>
+          <INTLIcon className="feature-icon" />
+          <Content>
+            <SubTitle> أنت تريد </SubTitle>
+
+            <GiveRecieveSwitch />
           </Content>
         </Feature>
 
@@ -83,7 +106,7 @@ export const Features = () => {
           </Content>
         </Feature>
 
-        <Feature>
+        {/* <Feature>
           <RouteIcon className="feature-icon" />
           <Content>
             <SubTitle>تعديل فوري عبر أوكس كار</SubTitle>
@@ -92,15 +115,15 @@ export const Features = () => {
               <br />
             </P>
           </Content>
-        </Feature>
+        </Feature> */}
 
-        <Feature>
+        {/* <Feature>
           <CodeAnalysisIcon className="feature-icon" />
           <Content>
             <SubTitle>أبحث عن أقرب عبوّة أكسجين متاحة</SubTitle>
             <P>أنقر على ولايتك لتتعرّف على بعض المتطوعين</P>
           </Content>
-        </Feature>
+        </Feature> */}
 
         <Button onClick={submitHandler} style={{ cursor: "pointer" }}>
           تفعييل
