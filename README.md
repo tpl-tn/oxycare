@@ -1,5 +1,9 @@
-<p align="center"> <img src="/public/logo.png" height="60" align="center"> <strong>Oxycare</strong> </p>
-![GitHub top language](https://img.shields.io/github/languages/top/tunpl/oxycare) ![Discord](https://img.shields.io/discord/834943508225327114) ![David](https://img.shields.io/david/tunpl/oxycare) ![GitHub Repo stars](https://img.shields.io/github/stars/tunpl/oxycare?style=social)
+<p align="center"> <img src="/public/logo.png" height="60" align="center"> <h2>Oxycare</h2> </p>
+
+![GitHub top language](https://img.shields.io/github/languages/top/tunpl/oxycare)
+![Discord](https://img.shields.io/discord/834943508225327114)
+![David](https://img.shields.io/david/tunpl/oxycare)
+![GitHub Repo stars](https://img.shields.io/github/stars/tunpl/oxycare?style=social)
 
 ## 🎤 The stack/technologies we're using
 - ReactJS/TypeScript
