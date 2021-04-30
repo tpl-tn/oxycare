@@ -3,13 +3,11 @@ import styled from "styled-components/macro";
 import { useSelector, useDispatch } from "react-redux";
 import { FormLabel } from "app/components/FormLabel";
 import { Input } from "./components/Input";
-import { RepoItem } from "./RepoItem";
 import { TextButton } from "./components/TextButton";
 import {
   selectUsername,
   selectRepos,
   selectLoading,
-  selectError,
 } from "./slice/selectors";
 import { LoadingIndicator } from "app/components/LoadingIndicator";
 import { RepoErrorType } from "./slice/types";
@@ -21,7 +19,6 @@ export function GithubRepoForm() {
   const username = useSelector(selectUsername);
   const repos = useSelector(selectRepos);
   const isLoading = useSelector(selectLoading);
-  const error = useSelector(selectError);
 
   const dispatch = useDispatch();
 
@@ -34,12 +31,6 @@ export function GithubRepoForm() {
     } else {
       dispatch(actions.repoError);
     }
-
-    // console.log({ username: username });
-    // console.log({ repos: repos });
-
-    // console.log({ repos: repos });
-    // console.log({ error: error });
   };
 
   const useEffectOnMount = (effect: React.EffectCallback) => {
@@ -108,10 +99,6 @@ const InputWrapper = styled.div`
   }
 `;
 
-const ErrorText = styled.span`
-  color: ${(p) => p.theme.text};
-`;
-
 const FormGroup = styled.form`
   display: flex;
   flex-direction: column;
@@ -122,5 +109,3 @@ const FormGroup = styled.form`
     margin-left: 0.125rem;
   }
 `;
-
-const List = styled.div``;

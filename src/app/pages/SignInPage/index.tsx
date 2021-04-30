@@ -36,7 +36,8 @@ export default function SignInPage() {
       }
     });
     return () => unregisterAuthObserver();
-  }, []);
+  }, [dispatch, history, loggedIn]);
+
   return (
     <>
       <Helmet>

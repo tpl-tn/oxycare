@@ -2,12 +2,9 @@ import * as React from "react";
 import { FormLabel } from "app/components/FormLabel";
 import { Radio } from "app/components/Radio";
 import styled from "styled-components/macro";
-import { useTranslation } from "react-i18next";
-import { messages } from "./messages";
 
 export function LanguageSwitch() {
   const [gov, setGov] = React.useState(1);
-  // const { t, i18n } = useTranslation();
   const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const location = Number(event.target.value);
     console.log();
@@ -16,7 +13,6 @@ export function LanguageSwitch() {
 
   return (
     <Wrapper>
-      {/* <FormLabel>{t(...messages.selectLanguage())}</FormLabel> */}
       <Languages>
         <Radio
           id="1"

@@ -1,13 +1,9 @@
 import * as React from "react";
-import { FormLabel } from "app/components/FormLabel";
 import { RadioChoice2 } from "app/components/RadioChoice2";
 import styled from "styled-components/macro";
-import { useTranslation } from "react-i18next";
-// import { messages } from "./messages";
 
 export function GiveRecieveSwitch() {
   const [choice, setChoice] = React.useState("give");
-  // const { t, i18n } = useTranslation();
   const handleChoiceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const choices = event.target.value;
 
@@ -16,7 +12,6 @@ export function GiveRecieveSwitch() {
 
   return (
     <Wrapper>
-      {/* <FormLabel>{t(...messages.selectLanguage())}</FormLabel> */}
       <Languages>
         <RadioChoice2
           id="give"
@@ -50,6 +45,5 @@ const Languages = styled.div`
 
   .radio {
     margin-right: 1.5rem;
-    /* width: 20%; */
   }
 `;
