@@ -88,7 +88,7 @@ export const Features = () => {
         </Feature>
 
         <Button onClick={submitHandler} style={{ cursor: "pointer" }}>
-          تفعييل
+          تفعيل
         </Button>
       </List>
     </>
