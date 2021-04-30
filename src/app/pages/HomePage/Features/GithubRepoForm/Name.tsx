@@ -3,7 +3,6 @@ import styled from "styled-components/macro";
 import { useSelector, useDispatch } from "react-redux";
 import { FormLabel } from "app/components/FormLabel";
 import { Input } from "./components/Input";
-import { RepoItem } from "./RepoItem";
 import { TextButton } from "./components/TextButton";
 import {
   selectUsername2,
@@ -26,17 +25,12 @@ export function Name() {
   const dispatch = useDispatch();
 
   const onChangeUsername2 = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    // if (Number.isInteger(Number(evt.currentTarget.value))) {
-    //   dispatch(actions.repoError2);
-    //   console.log(error);
-    // } else {
     dispatch(actions.changeUsername2(evt.currentTarget.value));
     dispatch(actions.loadRepos2());
     console.log({ user: username2 });
     console.log({ user: repos });
     console.log({ user: isLoading });
     console.log({ user: error });
-    // }
   };
 
   const useEffectOnMount = (effect: React.EffectCallback) => {
@@ -61,7 +55,6 @@ export function Name() {
   return (
     <Wrapper>
       <FormGroup onSubmit={onSubmitForm}>
-        {/* <FormLabel>أكتب الرّقم</FormLabel> */}
         <InputWrapper>
           <Input
             type="text"
@@ -103,9 +96,6 @@ const InputWrapper = styled.div`
   }
 `;
 
-const ErrorText = styled.span`
-  color: ${(p) => p.theme.text};
-`;
 
 const FormGroup = styled.form`
   display: flex;
@@ -117,5 +107,3 @@ const FormGroup = styled.form`
     margin-left: 0.125rem;
   }
 `;
-
-const List = styled.div``;
