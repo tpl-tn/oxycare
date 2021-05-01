@@ -6,10 +6,22 @@ export interface GithubRepoFormState {
   loading: boolean;
   error?: RepoErrorType | null;
   repositories: Repo[];
-  username2: string;
-  loading2: boolean;
-  error2?: RepoErrorType | null;
-  repositories2: Repo[];
+  phone: string;
+  loadingPhone: boolean;
+  errorPhone?: RepoErrorType | null;
+  repositoriesPhone: Repo[];
+  price: string;
+  loadingPrice: boolean;
+  errorPrice?: RepoErrorType | null;
+  repositoriesPrice: Repo[];
+  numberMachine: string;
+  loadingNumberMachine: boolean;
+  errorNumberMachine?: RepoErrorType | null;
+  repositoriesNumberMachine: Repo[];
+  capacity: string;
+  loadingCapacity: boolean;
+  errorCapacity?: RepoErrorType | null;
+  repositoriesCapacity: Repo[];
 }
 
 export enum RepoErrorType {

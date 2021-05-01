@@ -25,23 +25,80 @@ export const selectRepos = createSelector(
   [selectDomain],
   (githubRepoFormState) => githubRepoFormState.repositories
 );
-
-export const selectUsername2 = createSelector(
+export const selectPhone = createSelector(
   [selectDomain],
-  (githubRepoFormState) => githubRepoFormState.username
+  (githubRepoFormState) => githubRepoFormState.phone
 );
 
-export const selectLoading2 = createSelector(
+export const selectLoadingPhone = createSelector(
   [selectDomain],
-  (githubRepoFormState) => githubRepoFormState.loading
+  (githubRepoFormState) => githubRepoFormState.loadingPhone
 );
 
-export const selectError2 = createSelector(
+export const selectErrorPhone = createSelector(
   [selectDomain],
-  (githubRepoFormState) => githubRepoFormState.error
+  (githubRepoFormState) => githubRepoFormState.errorPhone
 );
 
-export const selectRepos2 = createSelector(
+export const selectReposPhone = createSelector(
   [selectDomain],
-  (githubRepoFormState) => githubRepoFormState.repositories
+  (githubRepoFormState) => githubRepoFormState.repositoriesPhone
+);
+export const selectPrice = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.price
+);
+
+export const selectLoadingPrice = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.loadingPrice
+);
+
+export const selectErrorPrice = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.errorPrice
+);
+
+export const selectReposPrice = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.repositoriesPrice
+);
+export const selectNumberMachine = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.numberMachine
+);
+
+export const selectLoadingNumberMachine = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.loadingNumberMachine
+);
+
+export const selectErrorNumberMachine = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.errorNumberMachine
+);
+
+export const selectReposNumberMachine = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.repositoriesNumberMachine
+);
+
+export const selectCapacity = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.capacity
+);
+
+export const selectLoadingCapacity = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.loadingCapacity
+);
+
+export const selectErrorCapacity = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.errorCapacity
+);
+
+export const selectReposCapacity = createSelector(
+  [selectDomain],
+  (githubRepoFormState) => githubRepoFormState.repositoriesCapacity
 );

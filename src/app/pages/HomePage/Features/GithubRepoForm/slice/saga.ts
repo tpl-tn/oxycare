@@ -1,6 +1,6 @@
 import { call, put, select, takeLatest, delay } from "redux-saga/effects";
 import { request } from "utils/request";
-import { selectUsername, selectUsername2 } from "./selectors";
+import { selectUsername, selectPhone } from "./selectors";
 import { githubRepoFormActions as actions } from ".";
 import { Repo } from "types/Repo";
 import { RepoErrorType } from "./types";
@@ -12,17 +12,17 @@ export function* getRepos() {
   yield delay(500);
   // Select username from store
   const username: string = yield select(selectUsername);
-  const username2: string = yield select(selectUsername2);
+  const phone: string = yield select(selectPhone);
   if (username.length === 0) {
     yield put(actions.repoError(RepoErrorType.USERNAME_EMPTY));
     return;
   }
-  if (username2.length === 0) {
-    yield put(actions.repoError2(RepoErrorType.USERNAME_EMPTY));
+  if (phone.length === 0) {
+    yield put(actions.repoErrorPhone(RepoErrorType.USERNAME_EMPTY));
     return;
   }
   const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
-  const requestURL2 = `https://api.github.com/users/${username2}/repos?type=all&sort=updated`;
+  const requestURL2 = `https://api.github.com/users/${phone}/repos?type=all&sort=updated`;
 
   try {
     // Call our request helper (see 'utils/request')
@@ -34,20 +34,20 @@ export function* getRepos() {
       yield put(actions.repoError(RepoErrorType.USER_HAS_NO_REPO));
     }
     if (repos2?.length > 0) {
-      yield put(actions.reposLoaded2(repos2));
+      yield put(actions.reposLoadedPhone(repos2));
     } else {
-      yield put(actions.repoError2(RepoErrorType.USER_HAS_NO_REPO));
+      yield put(actions.repoErrorPhone(RepoErrorType.USER_HAS_NO_REPO));
     }
   } catch (err) {
     if (err.response?.status === 404) {
       yield put(actions.repoError(RepoErrorType.USER_NOT_FOUND));
-      yield put(actions.repoError2(RepoErrorType.USER_NOT_FOUND));
+      yield put(actions.repoErrorPhone(RepoErrorType.USER_NOT_FOUND));
     } else if (err.message === "Failed to fetch") {
       yield put(actions.repoError(RepoErrorType.GITHUB_RATE_LIMIT));
-      yield put(actions.repoError2(RepoErrorType.GITHUB_RATE_LIMIT));
+      yield put(actions.repoErrorPhone(RepoErrorType.GITHUB_RATE_LIMIT));
     } else {
       yield put(actions.repoError(RepoErrorType.RESPONSE_ERROR));
-      yield put(actions.repoError2(RepoErrorType.RESPONSE_ERROR));
+      yield put(actions.repoErrorPhone(RepoErrorType.RESPONSE_ERROR));
     }
   }
 }

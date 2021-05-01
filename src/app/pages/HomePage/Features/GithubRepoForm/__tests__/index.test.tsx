@@ -97,10 +97,6 @@ describe("<GithubRepoForm />", () => {
     store.dispatch(actions.repoError(error));
     expect(component.queryByText(repoErrorText(error))).toBeInTheDocument();
 
-    error = RepoErrorType.USERNAME_NOT_NUMBER;
-    store.dispatch(actions.repoError(error));
-    expect(component.queryByText(repoErrorText(error))).toBeInTheDocument();
-
     error = RepoErrorType.RESPONSE_ERROR;
     store.dispatch(actions.repoError(error));
     expect(component.queryByText(repoErrorText(error))).toBeInTheDocument();
