@@ -1,5 +1,5 @@
-<p align="center"><img class="centerImage" src="./.github/logo.jpg" height="150" width="150"/></p>
-<h1 align="center">Oxycare 👨‍💻</h1>
+<p align="center"><img class="centerImage" src="./.github/logo.png" height="150" width="150"/></p>
+<h1 align="center">Oxycare</h1>
 
  <img align="center" src="https://img.shields.io/github/languages/top/tunpl/oxycare"> <img align="center" src="https://img.shields.io/discord/834943508225327114"> <img align="center" src="https://img.shields.io/david/tunpl/oxycare"> <img align="center" src="https://img.shields.io/github/stars/tunpl/oxycare?style=social">
 
