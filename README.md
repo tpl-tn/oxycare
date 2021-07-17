@@ -1,12 +1,11 @@
-<p align="center"> <img src="/public/logo.png" height="80" style="float" align="center" alt="Oxycare"></p>
-<h1 align="center"> Oxycare </h1>
+<p align="center"><img class="centerImage" src="./.github/logo.jpg" height="150" width="150"/></p>
+<h1 align="center">Oxycare 👨‍💻</h1>
 
  <img align="center" src="https://img.shields.io/github/languages/top/tunpl/oxycare"> <img align="center" src="https://img.shields.io/discord/834943508225327114"> <img align="center" src="https://img.shields.io/david/tunpl/oxycare"> <img align="center" src="https://img.shields.io/github/stars/tunpl/oxycare?style=social">
 
 ## 🎤 The stack/technologies we're using
 - ReactJS/TypeScript
 - MaterialUI
-- Firebase
 
 Before contributing check: 
 ### :red_circle: Pull Request Guidelines
@@ -34,27 +33,14 @@ Before contributing check:
 
 ## 🔶 The Branches: 
 - dev: for everything in the development process
-- main: for prod, don't edit this one ❗
+- features: basically like dev but focusing more on the added featueres and fixes. 
+- main: for prod, don't try to edit this one ❗
 
 ## ✅ The Reviewers:
 - @elfalehdev 
-- @bahachammakhi
 
 ## ✨ How to execute in Localhost
-0. git clone ```https://github.com/tunpl/oxycare.git```
-1. Create .env file and add:
-```
-REACT_APP_apiKey=AIzaSyAdu-Xdz62kLc0ptxraSE9h2fQQ_71pWck
-REACT_APP_authDomain=oxycare-8358e.firebaseapp.com
-REACT_APP_databaseURL=
-REACT_APP_projectId=oxycare-8358e
-REACT_APP_storageBucket=oxycare-8358e.appspot.com
-REACT_APP_messagingSenderId=26729504664
-REACT_APP_appId=1:26729504664:web:725f282b3e0218959815ed
-```
-2. npm install
-3. npm start
+0. git clone ```https://github.com/tunpl/oxycare.tn.git```
+1. npm install 
+2. npm start
 
-## License
-This project is licensed under the MIT license, Copyright (c) 2021 @tunpl : @tn.programmers
-For more information see `LICENSE.md`.
