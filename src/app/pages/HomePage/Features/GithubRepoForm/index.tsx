@@ -10,36 +10,72 @@ import {
   selectRepos,
   selectLoading,
   selectError,
+  selectPhone,
+  selectLoadingPhone,
+  selectPrice,
+  selectLoadingCapacity,
+  selectLoadingNumberMachine,
+  selectNumberMachine,
+  selectCapacity,
+  selectReposPrice,
+  selectLoadingPrice,
+  selectErrorPrice,
 } from "./slice/selectors";
 import { LoadingIndicator } from "app/components/LoadingIndicator";
 import { RepoErrorType } from "./slice/types";
 import { useGithubRepoFormSlice } from "./slice";
 
-export function GithubRepoForm() {
+export const GithubRepoForm = (props) => {
   const { actions } = useGithubRepoFormSlice();
 
   const username = useSelector(selectUsername);
+  const phone = useSelector(selectPhone);
+  const price = useSelector(selectPrice);
+  const numberMachine = useSelector(selectNumberMachine);
+  const capacity = useSelector(selectCapacity);
   const repos = useSelector(selectRepos);
-  const isLoading = useSelector(selectLoading);
+  const isLoadingPhone = useSelector(selectLoadingPhone);
+  const isLoadingUsername = useSelector(selectLoading);
+  const isLoadingPrice = useSelector(selectLoadingPrice);
+  const isLoadingNumberMachine = useSelector(selectLoadingNumberMachine);
+  const isLoadingCapacity = useSelector(selectLoadingCapacity);
   const error = useSelector(selectError);
 
   const dispatch = useDispatch();
 
   const onChangeUsername = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    if (Number.isInteger(Number(evt.currentTarget.value))) {
+    if (props.value === "phone") {
+      if (Number.isInteger(Number(evt.currentTarget.value))) {
+        dispatch(actions.changePhone(evt.currentTarget.value));
+        dispatch(actions.loadReposPhone());
+      } else {
+        dispatch(actions.repoErrorPhone);
+      }
+    } else if (props.value === "username") {
       dispatch(actions.changeUsername(evt.currentTarget.value));
       dispatch(actions.loadRepos());
-      console.log({ ur: username });
-      console.log({ repos: repos });
-    } else {
-      dispatch(actions.repoError);
+    } else if (props.value === "price") {
+      if (Number.isInteger(Number(evt.currentTarget.value))) {
+        dispatch(actions.changePrice(evt.currentTarget.value));
+        dispatch(actions.loadReposPrice());
+      } else {
+        dispatch(actions.repoErrorPrice);
+      }
+    } else if (props.value === "numberMachine") {
+      if (Number.isInteger(Number(evt.currentTarget.value))) {
+        dispatch(actions.changeNumberMachine(evt.currentTarget.value));
+        dispatch(actions.loadReposNumberMachine());
+      } else {
+        dispatch(actions.repoErrorNumberMachine);
+      }
+    } else if (props.value === "capacity") {
+      if (Number.isInteger(Number(evt.currentTarget.value))) {
+        dispatch(actions.changeCapacity(evt.currentTarget.value));
+        dispatch(actions.loadReposCapacity());
+      } else {
+        dispatch(actions.repoErrorCapacity);
+      }
     }
-
-    // console.log({ username: username });
-    // console.log({ repos: repos });
-
-    // console.log({ repos: repos });
-    // console.log({ error: error });
   };
 
   const useEffectOnMount = (effect: React.EffectCallback) => {
@@ -51,6 +87,18 @@ export function GithubRepoForm() {
     // When initial state username is not null, submit the form to load repos
     if (username && username.trim().length > 0) {
       dispatch(actions.loadRepos());
+    }
+    if (phone && phone.trim().length > 0) {
+      dispatch(actions.loadReposPhone());
+    }
+    if (price && price.trim().length > 0) {
+      dispatch(actions.loadReposPrice());
+    }
+    if (numberMachine && numberMachine.trim().length > 0) {
+      dispatch(actions.loadReposNumberMachine());
+    }
+    if (capacity && capacity.trim().length > 0) {
+      dispatch(actions.loadReposCapacity());
     }
   });
 
@@ -64,20 +112,42 @@ export function GithubRepoForm() {
   return (
     <Wrapper>
       <FormGroup onSubmit={onSubmitForm}>
-        <FormLabel>أكتب الرّقم</FormLabel>
+        {/* <FormLabel>{props.value}</FormLabel> */}
         <InputWrapper>
           <Input
             type="text"
-            placeholder="+216 99 999 999"
-            value={username}
+            placeholder={props.placeholder}
+            value={
+              props.value === "username"
+                ? username
+                : props.value === "phone"
+                ? phone
+                : props.value === "price"
+                ? price
+                : props.value === "numberMachine"
+                ? numberMachine
+                : props.value === "capacity"
+                ? capacity
+                : undefined
+            }
             onChange={onChangeUsername}
           />
-          {isLoading && <LoadingIndicator small />}
+          {props.value === "phone"
+            ? isLoadingPhone && <LoadingIndicator small />
+            : props.value === "phone"
+            ? isLoadingUsername && <LoadingIndicator small />
+            : props.value === "price"
+            ? isLoadingPrice && <LoadingIndicator small />
+            : props.value === "numberMachine"
+            ? isLoadingNumberMachine && <LoadingIndicator small />
+            : props.value === "capacity"
+            ? isLoadingCapacity && <LoadingIndicator small />
+            : null}
         </InputWrapper>
       </FormGroup>
     </Wrapper>
   );
-}
+};
 
 export const repoErrorText = (error: RepoErrorType) => {
   switch (error) {
@@ -104,7 +174,9 @@ const InputWrapper = styled.div`
 
   ${Input} {
     width: ${100 / 3}%;
-    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    direction: ltr;
+    text-align: right;
   }
 `;
 
@@ -119,7 +191,7 @@ const FormGroup = styled.form`
 
   ${FormLabel} {
     margin-bottom: 0.25rem;
-    margin-left: 0.125rem;
+    margin-right: 0.125rem;
   }
 `;
 

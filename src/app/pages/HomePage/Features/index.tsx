@@ -23,26 +23,69 @@ import { messages } from "../messages";
 import { initialState } from "./GithubRepoForm/slice";
 import { connect } from "react-redux";
 import { useSelector } from "react-redux";
-import {
-  selectError,
-  selectUsername,
-  selectRepos,
-  selectLoading,
-  selectError2,
-  selectUsername2,
-  selectLoading2,
-  selectRepos2,
-} from "./GithubRepoForm/slice/selectors";
+import { selectUsername, selectPhone } from "./GithubRepoForm/slice/selectors";
 import { GiveRecieveSwitch } from "./GiveRecieveSwitch";
-import { Name } from "./GithubRepoForm/Name";
+
+const fieldsGive = [
+  {
+    name: "الإسم و اللقب",
+    placeholder: "",
+    value: "username",
+  },
+  {
+    name: "رقم الهاتف للتواصل المباشر",
+    placeholder: "+216 99 999 999",
+    value: "phone",
+  },
+  {
+    name: "سعر اليوم واحد كراء / أم مجانية وتطوع",
+    placeholder: "",
+    value: "price",
+  },
+  {
+    name: "قداش عندك من ماكينة ؟",
+    placeholder: "",
+    value: "numberMachine",
+  },
+  {
+    name: "قداش سعة الماكينة ؟",
+    placeholder: "باللتر",
+    value: "capacity",
+  },
+];
+const fieldsRecieve = [
+  {
+    name: "الإسم و اللقب",
+    placeholder: "",
+    value: "username",
+  },
+  {
+    name: "رقم الهاتف للتواصل المباشر",
+    placeholder: "+216 99 999 999",
+    value: "phone",
+  },
+];
+
 export const Features = () => {
   const { t } = useTranslation();
   const username = useSelector(selectUsername);
-  const username2 = useSelector(selectUsername2);
+  const phone = useSelector(selectPhone);
   const [error, setError] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
+
+  const [regionChoice, setRegionChoice] = React.useState("give");
+  // let regionChoice = "give";
+  const [regionChoiceChanged, setRegionChoiceChanged] = React.useState(false);
+
+  const handleRegionChange = (val) => {
+    setRegionChoice(val);
+    // regionChoice = val;
+    // console.log(regionChoice);
+    // setRegionChoiceChanged(!regionChoiceChanged);
+  };
+
   const submitHandler = () => {
-    if (username && username2) {
+    if (username && phone) {
       setError(false);
       setSuccess(true);
     } else {
@@ -57,6 +100,7 @@ export const Features = () => {
       setSuccess(false);
     }, 5000);
   }, [error || success]);
+
   return (
     <>
       <Title as="h2">كيفاش تنجّم تعاون؟</Title>
@@ -70,12 +114,39 @@ export const Features = () => {
         <Feature>
           <INTLIcon className="feature-icon" />
           <Content>
-            <SubTitle>الإسم و اللقب</SubTitle>
+            <SubTitle> أنت تريد </SubTitle>
 
-            <Name />
+            <GiveRecieveSwitch onSelectRegion={handleRegionChange} />
           </Content>
         </Feature>
-        <Feature>
+        <div>
+          {regionChoice === "recieve"
+            ? fieldsGive.map((field, index) => (
+                <Feature key={index}>
+                  <INTLIcon className="feature-icon" />
+                  <Content>
+                    <SubTitle>{field.name}</SubTitle>
+
+                    <GithubRepoForm
+                      placeholder={field.placeholder}
+                      value={field.value}
+                    />
+                  </Content>
+                </Feature>
+              ))
+            : fieldsRecieve.map((field, index) => (
+                <Feature key={index}>
+                  <INTLIcon className="feature-icon" />
+                  <Content>
+                    <SubTitle>{field.name}</SubTitle>
+
+                    <GithubRepoForm />
+                  </Content>
+                </Feature>
+              ))}
+        </div>
+
+        {/* <Feature>
           <StateIcon className="feature-icon" />
           <Content>
             <SubTitle>رقم الهـاتف</SubTitle>
@@ -83,15 +154,7 @@ export const Features = () => {
             <P>رقم الهاتف متاعك يساعدنـا للإتصال بيك في حالة حصولك على عبوّة</P>
             <GithubRepoForm />
           </Content>
-        </Feature>
-        <Feature>
-          <INTLIcon className="feature-icon" />
-          <Content>
-            <SubTitle> أنت تريد </SubTitle>
-
-            <GiveRecieveSwitch />
-          </Content>
-        </Feature>
+        </Feature> */}
 
         <Feature>
           <INTLIcon className="feature-icon" />
@@ -134,22 +197,23 @@ export const Features = () => {
 };
 
 const Button = styled.button`
-  background: #b99095;
+  background: #0e86d4;
   color: white;
   font-size: 1.5em;
-  margin: 1em;
+  margin-right: 1.7em;
+  margin: 1.7em;
   padding: 0.5em 2em;
-  border: 2px solid #b99095;
+  border: 2px solid #0e86d4;
   border-radius: 3px;
 `;
 const Feature = styled.li`
   display: flex;
-  margin: 2.25rem 0 3.25rem 2.25rem;
+  margin: 2.25rem 2.25rem 3.25rem 0;
 
   .feature-icon {
     width: 2.25rem;
     height: 2.25rem;
-    margin-right: 2.25rem;
+    margin-left: 1.25rem;
     flex-shrink: 0;
   }
 `;
@@ -160,6 +224,10 @@ const Content = styled.div`
 const List = styled.ul`
   padding: 0;
   margin: 6.25rem 0 0 0;
+  direction: rtl;
+  /* width: 100%; */
+  /* background: red; */
+  /* text-align: right; */
 `;
 const Div1 = styled.div`
   color: red;

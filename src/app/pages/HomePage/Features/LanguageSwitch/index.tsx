@@ -250,7 +250,7 @@ const Languages = styled.div`
   display: flex;
   flex-wrap: wrap;
   .radio {
-    margin-right: 1.5rem;
+    margin-left: 1.5rem;
     width: 20%;
   }
 `;

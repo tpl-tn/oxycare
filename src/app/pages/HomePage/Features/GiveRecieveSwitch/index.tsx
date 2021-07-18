@@ -5,13 +5,15 @@ import styled from "styled-components/macro";
 import { useTranslation } from "react-i18next";
 // import { messages } from "./messages";
 
-export function GiveRecieveSwitch() {
+export function GiveRecieveSwitch(props) {
   const [choice, setChoice] = React.useState("give");
   // const { t, i18n } = useTranslation();
   const handleChoiceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const choices = event.target.value;
 
     setChoice(choices);
+    props.onSelectRegion(choice);
+    return choices;
   };
 
   return (
@@ -49,7 +51,7 @@ const Languages = styled.div`
   display: flex;
 
   .radio {
-    margin-right: 1.5rem;
+    margin-left: 1.5rem;
     /* width: 20%; */
   }
 `;
